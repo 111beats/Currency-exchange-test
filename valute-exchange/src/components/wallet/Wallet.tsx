@@ -116,7 +116,7 @@ export default function Wallet(): JSX.Element {
         {amount ? (
           <div className={styles['buttonContainer']}>
             <h3>
-              Exchange Rate from {baseCurrency} to {targetCurrency}
+              Курс обмена {baseCurrency} к {targetCurrency}
             </h3>
             <p>
             {amount} {baseCurrency} = { (amount * rates[targetCurrency]).toFixed(2) } {targetCurrency}

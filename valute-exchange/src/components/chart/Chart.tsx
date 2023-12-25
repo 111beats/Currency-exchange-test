@@ -8,6 +8,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from 'recharts';
+import styles from './chart.module.css'
 
 const currencyOptions = [
   'AUD',
@@ -42,7 +43,7 @@ const currencyOptions = [
   'ZAR',
 ];
 
-export default function Chart() {
+export default function Chart(): JSX.Element {
   const [data, setData] = useState(null);
   const [currencyInit, setCurrencyInit] = useState<string>('AUD');
   const [currency, setCurrency] = useState<string>('USD');
@@ -86,28 +87,33 @@ export default function Chart() {
   }));
   const currentDate = new Date().toISOString().split('T')[0];
   return (
-    <div className=''>
+    <>
+    <div>
+    <h1 style={{textAlign:'center',marginTop:'50px'}}>ДИНАМИКА ЦЕНЫ ВАЛЮТЫ</h1>
+    </div>
+    <div className={styles['mainContainer']}>
+      <div className={styles['text']}>
       <div>
-        <label>Выберите период:</label>
+        <h4>Выберите период:</h4>
         <input
           type='date'
           value={periodEnd}
           onChange={(e) => setPeriodEnd(e.target.value)}
           max={currentDate}
-        />
+          />
         <input
           type='date'
           value={periodStart}
           onChange={(e) => setPeriodStart(e.target.value)}
           max={currentDate}
-        />
+          />
       </div>
       <div>
-        <label>Выберите валюту (из):</label>
+        <h4>Выберите валюту (из):</h4>
         <select
           onChange={(e) => setCurrencyInit(e.target.value)}
           value={currencyInit}
-        >
+          >
           {currencyOptions.map((option) => (
             <option key={option} value={option}>
               {option}
@@ -116,7 +122,7 @@ export default function Chart() {
         </select>
       </div>
       <div>
-        <label>Выберите валюту (в):</label>
+        <h4>Выберите валюту (в):</h4>
         <select onChange={(e) => setCurrency(e.target.value)} value={currency}>
           {currencyOptions.map((option) => (
             <option key={option} value={option}>
@@ -124,8 +130,9 @@ export default function Chart() {
             </option>
           ))}
         </select>
+          </div>
       </div>
-      <div style={{ width: 800, height: 400 }}>
+      <div className={styles['chart']}>
         <ResponsiveContainer>
           <LineChart data={chartData}>
             <XAxis dataKey='date' />
@@ -137,5 +144,6 @@ export default function Chart() {
         </ResponsiveContainer>
       </div>
     </div>
+    </>  
   );
 }
