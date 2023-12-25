@@ -24,6 +24,8 @@ h3 {
   display: flex;
   justify-content: center;
   margin-top: 150px;
+  gap: 10px;
+  
 }
 
 @media (max-width: 768px) {

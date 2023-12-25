@@ -39,7 +39,7 @@ const ITEMS_PER_PAGE:number = 6;
 
 export default function Currency():JSX.Element {
   const [currency, setCurrency] = useState<{ [key: string]: number }>({});
-  const [defaultCurrency, setDefaultCurrency] = useState('EUR');
+  const [defaultCurrency, setDefaultCurrency] = useState('USD');
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
