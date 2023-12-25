@@ -35,7 +35,7 @@ const currencyOptions: string[] = [
   'ZAR',
 ];
 
-const ITEMS_PER_PAGE:number = 9;
+const ITEMS_PER_PAGE:number = 6;
 
 export default function Currency():JSX.Element {
   const [currency, setCurrency] = useState<{ [key: string]: number }>({});
@@ -97,7 +97,7 @@ export default function Currency():JSX.Element {
       <h3>Курсы обмена для {defaultCurrency}</h3>
       <div className={styles['list']}>
         {filteredCurrencies.map(([currencyCode, rate]) => (
-          <Card key={currencyCode} style={{ width: '20rem' }}>
+          <Card key={currencyCode} style={{ width: '15rem' }}>
             <Card.Body>
               <Card.Title>{currencyCode}</Card.Title>
               <Card.Text>
