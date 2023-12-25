@@ -24,7 +24,7 @@ export const Navbar = () => {
           <NavLink to="/chart">CHARTS</NavLink>
         </li>
         <li>
-          <NavLink to="/exchange">WALLET</NavLink>
+          <NavLink to="/wallet">WALLET</NavLink>
         </li>
       </ul>
     </nav>
