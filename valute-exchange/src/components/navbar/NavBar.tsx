@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import './Navbar.css';
+import './navbar.css';
 import { Link, NavLink } from 'react-router-dom';
 import { Switcher } from '../swither/Swither';
 
