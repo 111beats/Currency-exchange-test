@@ -2,8 +2,11 @@
   "name": "valute-exchange",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://111beats.github.io/currency-exchange-test-app",
   "type": "module",
   "scripts": {
+    "predeploy":"npm run build",
+    "deploy":"gh-pages -d build",
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
@@ -11,9 +14,11 @@
   },
   "dependencies": {
     "bootstrap": "^5.3.2",
+    "gh-pages": "^6.1.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.9.2",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.21.1",
     "recharts": "^2.10.3"
   },
   "devDependencies": {
