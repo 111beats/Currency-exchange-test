@@ -1,0 +1,41 @@
+.list {
+    margin-top: 50px;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 40px;
+  }
+  
+  /* Добавленные медиа-запросы */
+  @media (max-width: 768px) {
+    .list {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 20px; /* Устанавливайте желаемое значение отступа для узких экранов */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .list {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .selected {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  h3 {
+    text-align: center;
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+  }
+  
