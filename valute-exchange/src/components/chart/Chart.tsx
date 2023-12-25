@@ -45,12 +45,14 @@ const currencyOptions = [
 
 export default function Chart(): JSX.Element {
   const [data, setData] = useState(null);
-  const [currencyInit, setCurrencyInit] = useState<string>('AUD');
-  const [currency, setCurrency] = useState<string>('USD');
+  const [currencyInit, setCurrencyInit] = useState<string>('USD');
+  const [currency, setCurrency] = useState<string>('TRY');
   const [periodStart, setPeriodStart] = useState<string>('2023-12-23');
   const [periodEnd, setPeriodEnd] = useState<string>('2023-11-23');
   const [minCurrencyValue, setMinCurrencyValue] = useState<number>(0);
   const [maxCurrencyValue, setMaxCurrencyValue] = useState<number>(0);
+  const [hasError, setHasError] = useState<boolean>(false);
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -64,22 +66,27 @@ export default function Chart(): JSX.Element {
         const currencyValues = Object.values(result.rates).map(
           (rate) => rate[currency]
         );
-        const minCurrency = Math.min(...currencyValues);
-        const maxCurrency = Math.max(...currencyValues);
+        const minCurrency = Math.min(...currencyValues)
+        const maxCurrency = Math.max(...currencyValues)
 
         setMinCurrencyValue(minCurrency);
         setMaxCurrencyValue(maxCurrency);
       } catch (error) {
         console.error('Error fetching data:', error);
+        setHasError(true);
       }
     };
 
     fetchData();
   }, [periodStart, periodEnd, currencyInit, currency]);
 
+  if (hasError) {
+    return <h3>Error</h3>;
+  }
   if (!data) {
     return <div>Loading...</div>;
   }
+
 
   const chartData = Object.keys(data.rates).map((date) => ({
     date,

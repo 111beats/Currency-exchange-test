@@ -4,7 +4,7 @@ import './Navbar.css';
 import { Link, NavLink } from 'react-router-dom';
 import { Switcher } from '../swither/Swither';
 
-export const Navbar = () => {
+export const Navbar = ():JSX.Element => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
