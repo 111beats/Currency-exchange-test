@@ -32,6 +32,10 @@ h3 {
   .list {
     grid-template-columns: repeat(2, 1fr);
   }
+  .pagination{
+   padding-bottom: 20px;
+   margin-top: 50px;
+  }
 }
 
 @media (max-width: 480px) {
